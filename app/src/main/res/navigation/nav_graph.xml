@@ -30,7 +30,7 @@
             app:exitAnim="@anim/to_right" />
         <argument
             android:name="dataModel"
-            app:argType="com.example.signupapp.SignUpFormModel" />
+            app:argType="com.example.signupapp.ui.model.SignUpFormModel" />
     </fragment>
 
 

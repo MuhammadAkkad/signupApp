@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -18,7 +18,6 @@
         android:padding="@dimen/d16"
         tools:context=".ui.activity.MainActivity">
 
-
         <!-- Top section -->
         <TextView
             android:id="@+id/textViewTitle"
@@ -27,7 +26,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@{@string/hello_user(model.name)}"
             android:textColor="@color/text_color_title"
-            android:textSize="38sp"
+            android:textSize="@dimen/sp38"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -42,7 +41,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/successful_sign_in_description"
             android:textColor="@color/text_color_description"
-            android:textSize="14sp"
+            android:textSize="@dimen/sp14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +55,7 @@
             android:layout_width="@dimen/d0"
             android:layout_height="@dimen/d0"
             android:layout_marginTop="@dimen/d32"
+            bind:dataModel="@{model}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.25"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,13 +105,13 @@
             android:layout_width="@dimen/d0"
             android:layout_height="@dimen/d48"
             android:layout_marginTop="@dimen/d16"
-            android:layout_marginBottom="@dimen/d8"
+            android:layout_marginBottom="@dimen/d4"
             android:background="@drawable/gradual_background"
             android:fontFamily="sans-serif"
             android:text="@string/sign_in"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/sp16"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

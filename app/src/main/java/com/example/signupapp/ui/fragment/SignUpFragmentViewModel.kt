@@ -2,8 +2,8 @@ package com.example.signupapp.ui.fragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.signupapp.ui.model.SignUpFormModel
 import com.example.signupapp.domain.repository.ProjectRepository
+import com.example.signupapp.ui.model.SignUpFormModel
 import com.example.signupapp.ui.util.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -21,12 +21,15 @@ class SignUpFragmentViewModel @Inject constructor(private val repository: Projec
     val uiState: StateFlow<UIState> = _uiState
 
     fun sendDataToImagination(model: SignUpFormModel) {
-        // tell UI we are loading.
-        _uiState.value = UIState(isLoading = true)
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.sendDataToImagination(model).collect {
-                // give UI the result data.
-                _uiState.value = UIState(data = it, isLoading = false)
+        // to prevent concurrent clicks.
+        if (!_uiState.value.isLoading) {
+            // tell UI we are loading.
+            _uiState.value = UIState(isLoading = true)
+            viewModelScope.launch(Dispatchers.IO) {
+                repository.sendDataToImagination(model).collect {
+                    // give UI the result data.
+                    _uiState.value = UIState(data = it, isLoading = false)
+                }
             }
         }
     }

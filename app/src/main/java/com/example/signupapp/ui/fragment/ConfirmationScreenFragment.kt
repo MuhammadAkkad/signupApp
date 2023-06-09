@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.example.signupapp.ui.model.SignUpFormModel
 import com.example.signupapp.databinding.ConfirmationScreenBinding
+import com.example.signupapp.ui.model.SignUpFormModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,16 +29,11 @@ class ConfirmationScreenFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        getData(args.dataModel)
+        setData(args.dataModel)
     }
 
-    private fun getData(dataModel: SignUpFormModel) {
+    private fun setData(dataModel: SignUpFormModel) {
         binding.model = dataModel
-        dataModel.image?.let {
-            binding.textViewAvatar.avatarIv.setImageBitmap(it)
-        } ?: kotlin.run {
-            binding.textViewAvatar.root.visibility = View.GONE
-        }
         binding.executePendingBindings()
     }
 
@@ -47,4 +42,5 @@ class ConfirmationScreenFragment : Fragment() {
         // important for memory leak/
         _binding = null
     }
+
 }

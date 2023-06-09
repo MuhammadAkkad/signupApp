@@ -5,7 +5,15 @@
     <dimen name="d4">4dp</dimen>
     <dimen name="d8">8dp</dimen>
     <dimen name="d16">16dp</dimen>
+    <dimen name="d24">24dp</dimen>
     <dimen name="d32">32dp</dimen>
     <dimen name="d48">48dp</dimen>
     <dimen name="d180">180dp</dimen>
+
+
+    <!--Font size-->
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp38">38sp</dimen>
+
 </resources>

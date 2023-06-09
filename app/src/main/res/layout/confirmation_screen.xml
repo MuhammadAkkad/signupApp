@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="com.example.signupapp.SignUpFormModel" />
+            type="com.example.signupapp.ui.model.SignUpFormModel" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:padding="@dimen/d16"
-        tools:context=".MainActivity">
+        tools:context=".ui.activity.MainActivity">
 
 
         <!-- Top section -->

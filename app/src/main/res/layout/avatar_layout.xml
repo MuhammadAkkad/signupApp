@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         app:cardBackgroundColor="@color/grey"
         app:cardCornerRadius="@dimen/d16"
-        tools:context=".MainActivity">
+        tools:context=".ui.activity.MainActivity">
 
         <TextView
             style="@style/AvatarTextViewStyle"

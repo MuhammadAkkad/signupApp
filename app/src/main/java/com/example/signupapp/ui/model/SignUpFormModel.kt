@@ -1,4 +1,4 @@
-package com.example.signupapp
+package com.example.signupapp.ui.model
 
 import android.graphics.Bitmap
 

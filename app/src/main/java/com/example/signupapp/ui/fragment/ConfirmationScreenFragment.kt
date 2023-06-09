@@ -1,4 +1,4 @@
-package com.example.signupapp
+package com.example.signupapp.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,19 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.example.signupapp.ui.model.SignUpFormModel
 import com.example.signupapp.databinding.ConfirmationScreenBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ConfirmationScreenFragment : Fragment() {
-
 
     private var _binding: ConfirmationScreenBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private val args by navArgs<ConfirmationScreenFragmentArgs>()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +27,8 @@ class ConfirmationScreenFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         getData(args.dataModel)
     }
 

@@ -4,21 +4,25 @@
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".MainActivity">
+        tools:context=".ui.activity.MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/d16">
+            android:paddingStart="@dimen/d16"
+            android:paddingEnd="@dimen/d16"
+            android:paddingBottom="@dimen/d16">
 
             <!-- Top section -->
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d16"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/profile_creation"
                 android:textColor="@color/text_color_title"
@@ -175,8 +179,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textInputLayoutWebsite" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progress_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="invisible"
+                app:indicatorSize="@dimen/d48"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

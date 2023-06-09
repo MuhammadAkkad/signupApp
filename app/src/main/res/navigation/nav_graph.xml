@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/FragmentSignUpScreen"
-        android:name="com.example.signupapp.SignUpScreenFragment"
+        android:name="com.example.signupapp.ui.fragment.SignUpScreenFragment"
         android:label="fragment_satellite_list"
         tools:layout="@layout/sign_up_screen">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/FragmentConfirmationScreen"
-        android:name="com.example.signupapp.ConfirmationScreenFragment"
+        android:name="com.example.signupapp.ui.fragment.ConfirmationScreenFragment"
         android:label="fragment_satellite_detail"
         tools:layout="@layout/confirmation_screen">
         <action

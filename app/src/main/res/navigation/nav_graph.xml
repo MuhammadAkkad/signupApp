@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/FragmentSignUpScreen">
+
+    <fragment
+        android:id="@+id/FragmentSignUpScreen"
+        android:name="com.example.signupapp.FragmentSignUpScreen"
+        android:label="fragment_satellite_list"
+        tools:layout="@layout/sign_up_screen">
+        <action
+            android:id="@+id/action_sign_up_to_confirmation"
+            app:destination="@id/FragmentConfirmationScreen"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentConfirmationScreen"
+        android:name="com.example.signupapp.FragmentConfirmationScreen"
+        android:label="fragment_satellite_detail"
+        tools:layout="@layout/confirmation_screen">
+        <action
+            android:id="@+id/action_satelliteDetailFragment_to_satelliteListFragment"
+            app:destination="@id/FragmentSignUpScreen"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+    </fragment>
+
+
+</navigation>

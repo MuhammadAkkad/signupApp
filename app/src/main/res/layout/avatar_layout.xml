@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        style="@style/MyTextView"
+        style="@style/AvatarTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/tap_to_add_avatar" />

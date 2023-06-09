@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">signupApp</string>
+    <string name="use_the_form_below_to_submit_your_portfolio">Use the form below to submit your portfolio.</string>
+    <string name="an_email_and_password_are_required">An Email and password are required.</string>
+    <string name="first_name">First Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="website">Website</string>
+    <string name="submit">Submit</string>
+    <string name="tap_to_add_avatar">Tap to add avatar.</string>
+    <string name="avatar_view">Avatar view</string>
+    <string name="profile_creation">Profile Creation</string>
+</resources>

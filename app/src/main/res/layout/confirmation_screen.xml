@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.signupapp.SignUpFormModel" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -17,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="Hello, Muhammad!"
+            android:text="@{@string/hello_user(model.name)}"
             android:textColor="@color/text_color_title"
             android:textSize="38sp"
             android:textStyle="bold"
@@ -46,20 +54,24 @@
             android:id="@+id/textViewAvatar"
             layout="@layout/avatar_layout"
             android:layout_width="@dimen/d0"
-            android:layout_height="@dimen/d180"
-            android:layout_marginTop="@dimen/d16"
+            android:layout_height="@dimen/d0"
+            android:layout_marginTop="@dimen/d32"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewSubtitle1"
             app:layout_constraintWidth_percent="0.4" />
 
+        <!-- input review section -->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/TextViewWebsite"
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d16"
             android:autoLink="all"
             android:linksClickable="true"
+            android:text="@{model.email}"
             android:textColorLink="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,10 +79,11 @@
             tools:text="google.com" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/TextViewFirstName"
+            android:id="@+id/TextViewName"
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{model.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/TextViewWebsite"
@@ -81,9 +94,10 @@
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{model.website}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/TextViewFirstName"
+            app:layout_constraintTop_toBottomOf="@id/TextViewName"
             tools:text="mhammad.akkad@gmail.com" />
 
         <!-- Submit button -->

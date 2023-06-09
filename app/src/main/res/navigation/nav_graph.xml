@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/FragmentSignUpScreen"
-        android:name="com.example.signupapp.FragmentSignUpScreen"
+        android:name="com.example.signupapp.SignUpScreenFragment"
         android:label="fragment_satellite_list"
         tools:layout="@layout/sign_up_screen">
         <action
@@ -16,10 +16,11 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+
     </fragment>
     <fragment
         android:id="@+id/FragmentConfirmationScreen"
-        android:name="com.example.signupapp.FragmentConfirmationScreen"
+        android:name="com.example.signupapp.ConfirmationScreenFragment"
         android:label="fragment_satellite_detail"
         tools:layout="@layout/confirmation_screen">
         <action
@@ -27,6 +28,9 @@
             app:destination="@id/FragmentSignUpScreen"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
+        <argument
+            android:name="dataModel"
+            app:argType="com.example.signupapp.SignUpFormModel" />
     </fragment>
 
 

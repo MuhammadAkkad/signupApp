@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/rounded_corner_16"
-    tools:context=".MainActivity">
+<layout>
 
-    <TextView
-        style="@style/AvatarTextViewStyle"
+    <data>
+
+        <variable
+            name="bitmap"
+            type="android.graphics.Bitmap" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/avatarRootCv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/tap_to_add_avatar" />
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="@dimen/d16"
+        tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/avatar_view" />
+        <TextView
+            style="@style/AvatarTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/tap_to_add_avatar" />
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/avatarIv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/avatar_view"
+            android:scaleType="centerCrop" />
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

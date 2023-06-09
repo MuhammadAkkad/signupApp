@@ -12,4 +12,6 @@
     <string name="profile_creation">Profile Creation</string>
     <string name="sign_in">Sign In</string>
     <string name="successful_sign_in_description">Your super-awesome portfolio has been successfully submitted! The preview below is what the community wil see!</string>
+    <string name="mandatory_field">This feild is mandatory.</string>
+    <string name="hello_user">Hello, %s!</string>
 </resources>

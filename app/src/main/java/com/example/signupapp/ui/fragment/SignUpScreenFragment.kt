@@ -3,12 +3,12 @@ package com.example.signupapp.ui.fragment
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.graphics.drawable.toBitmap
@@ -19,12 +19,12 @@ import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.signupapp.R
 import com.example.signupapp.databinding.SignUpScreenBinding
 import com.example.signupapp.ui.model.SignUpFormModel
+import com.example.signupapp.ui.util.UIState
 import com.example.signupapp.ui.util.hideKeyboard
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.ByteArrayOutputStream
 
 
 @AndroidEntryPoint
@@ -50,19 +50,26 @@ class SignUpScreenFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.Main) {
             viewModel.uiState.collect {
                 showLoading(it.isLoading)
-                if (!it.isLoading && it.data != null) {
-                    navigateToScreenConfirmation(it.data as SignUpFormModel)
-                }
+                handleError(it.error)
+                navigateToScreenConfirmation(it)
             }
         }
     }
 
-    private fun navigateToScreenConfirmation(model: SignUpFormModel) {
-        findNavController(requireParentFragment()).navigate(
-            SignUpScreenFragmentDirections.actionSignUpToConfirmation(
-                model
+    private fun navigateToScreenConfirmation(uiState: UIState) {
+        if (!uiState.isLoading && uiState.data != null) {
+            findNavController(requireParentFragment()).navigate(
+                SignUpScreenFragmentDirections.actionSignUpToConfirmation(
+                    uiState.data as SignUpFormModel
+                )
             )
-        )
+        }
+    }
+
+    private fun handleError(error: Exception?) {
+        error?.message?.let {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun registerForActivityResult() {

@@ -29,9 +29,9 @@
             android:id="@+id/avatarIv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:setImageBitmap="@{dataModel.image}"
             android:contentDescription="@string/avatar_view"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:setImageBitmap="@{dataModel.image}" />
 
     </androidx.cardview.widget.CardView>
 

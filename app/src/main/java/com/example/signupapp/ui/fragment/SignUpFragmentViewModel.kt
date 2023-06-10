@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -31,6 +32,8 @@ class SignUpFragmentViewModel @Inject constructor(private val repository: Projec
                     _uiState.value = UIState(data = it, isLoading = false)
                 }
             }
+        }else {
+            _uiState.value = UIState( isLoading = true, error = Exception("Another request is already in progress"))
         }
     }
 }

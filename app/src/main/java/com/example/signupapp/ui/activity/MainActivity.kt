@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         // no night mode support.
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     override fun onSupportNavigateUp(): Boolean {

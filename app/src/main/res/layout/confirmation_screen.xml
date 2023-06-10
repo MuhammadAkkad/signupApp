@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+<layout>
 
     <data>
 
         <variable
             name="model"
             type="com.example.signupapp.ui.model.SignUpFormModel" />
+
+        <import type="android.view.View" />
 
     </data>
 
@@ -49,18 +51,33 @@
 
 
         <!-- Avatar section -->
-        <include
-            android:id="@+id/textViewAvatar"
-            layout="@layout/avatar_layout"
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/avatarRootCv"
             android:layout_width="@dimen/d0"
             android:layout_height="@dimen/d0"
             android:layout_marginTop="@dimen/d32"
-            bind:dataModel="@{model}"
+            android:visibility="@{model.image != null ? View.VISIBLE : View.GONE}"
+            app:cardCornerRadius="@dimen/d16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewSubtitle1"
-            app:layout_constraintWidth_percent="0.4" />
+            app:layout_constraintWidth_percent="0.4"
+            tools:context=".ui.activity.MainActivity">
+
+            <ImageView
+                android:id="@+id/avatarIv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/avatar_view"
+                android:scaleType="centerCrop"
+                android:setImageBitmap="@{model.image}"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+        </androidx.cardview.widget.CardView>
+
 
         <!-- input review section -->
         <androidx.appcompat.widget.AppCompatTextView
@@ -71,11 +88,11 @@
             android:layout_marginTop="@dimen/d16"
             android:autoLink="all"
             android:linksClickable="true"
-            android:text="@{model.email}"
+            android:text="@{model.website}"
             android:textColorLink="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewAvatar"
+            app:layout_constraintTop_toBottomOf="@id/avatarRootCv"
             tools:text="google.com" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -94,7 +111,7 @@
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{model.website}"
+            android:text="@{model.email}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/TextViewName"

@@ -1,7 +1,6 @@
 package com.example.signupapp.ui.binding
 
 import android.graphics.Bitmap
-import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.example.signupapp.ui.util.gone
